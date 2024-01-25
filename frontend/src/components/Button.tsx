@@ -1,6 +1,3 @@
-export interface ButtonProps {
-  title: string
-}
 export const Button = (props: {title: string, color: string, handleClick: () => void }) => {
   const {title, color, handleClick} = props;
 
