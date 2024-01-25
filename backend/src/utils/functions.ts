@@ -23,13 +23,13 @@ export function createPathFilters(filters: QuoteFilters): string {
 }
 
 export function generateToken(): string {
-  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters: string ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  let result = ' ';
-  const charactersLength = characters.length;
+  let token: string = ' ';
+  const charactersLength: number = characters.length;
   for ( let i = 0; i < charactersLength; i++ ) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    token += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
 
-  return result;
+  return token;
 }

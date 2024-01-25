@@ -18,7 +18,6 @@ app.use(express.json());
 
 app.get('/', async (req: Request, res: Response) => {
   let filters: QuoteFilters = req.query as QuoteFilters;
-  console.log({filters});
   let quotes: Quote[] = await QuoteService.fetchQuotes(filters)
   res.send({quotes: quotes});
 });

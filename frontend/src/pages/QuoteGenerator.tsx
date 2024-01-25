@@ -1,23 +1,16 @@
-import {useNavigate} from 'react-router-dom';
+import {Navigate, useNavigate} from 'react-router-dom';
 import {Input} from '../components/Input';
 import {Button} from '../components/Button';
 import {useState} from 'react';
 import {Quote} from '../models/Quote';
 import {useNextQuotes} from '../utils/hooks';
 import {createPathFilters} from '../utils/functions';
+import {Login} from './Login';
 
 export const QuoteGenerator = () => {
   const navigate = useNavigate();
   const {nextQuotes} = useNextQuotes();
-  const [quotes, setQuotes] = useState<Quote[]>([{
-    content: '',
-    author: '',
-    tags: [],
-    authorSlug: '',
-    length: 0,
-    dateAdded: '',
-    dateModified: ''
-  }]);
+  const [quotes, setQuotes] = useState<Quote[]>([]);
   const [number, setNumber] = useState<number>(1);
   const [author, setAuthor] = useState<string>('');
   const [minLength, setMinLength] = useState<number>(1);
@@ -25,7 +18,7 @@ export const QuoteGenerator = () => {
   const [tags, setTags] = useState<string>('');
 
   if(!localStorage.getItem('token')) {
-    navigate('/');
+    return <Navigate to="/"/>
   }
 
   const handleNumberChange = (value: string) => {
@@ -56,18 +49,26 @@ export const QuoteGenerator = () => {
       tags: tags,
       author: author
     })
-    console.log({pathFilters});
     const quotes: Quote[] = await nextQuotes(pathFilters);
     setQuotes(quotes);
+  }
+
+  const handleDisconnect = async () => {
+    localStorage.clear();
+    navigate('/');
   }
 
   return (
       <div className="p-12">
         <h4 className="text-center text-4xl">Quote generator</h4>
-        <div className="h-screen flex flex-col items-center justify-center">
-          <div className="rounded overflow-hidden shadow-lg">
+        <Button title="Dsiconnect" color="bg-red-400 hover:bg-red-500" handleClick={handleDisconnect}/>
+        <div className="flex flex-col items-center justify-center">
+          <div className="rounded shadow-lg">
             <div className="w-full">
-              {quotes.map((quote, index) => (
+              {quotes.length > 0 && (
+                  <label className="text-xl">Nb quotes: {quotes.length}</label>
+              )}
+              {quotes.length > 0 && quotes.map((quote, index) => (
                   <div key={index} className="flex flex-col px-6 py-4 gap-4">
                     <div className="font-bold text-xl mb-2">Author: {quote.author}</div>
                     <p className="italic">
@@ -113,7 +114,11 @@ export const QuoteGenerator = () => {
                 <Input type="text" defaultValue={tags} handleChange={handleTagsChange}/>
               </div>
 
-              <Button title="Next" color="bg-green-400 hover:bg-green-500" handleClick={handleNext}/>
+              <div className="flex flex-row gap-4">
+                <Button title="Next" color="bg-green-400 hover:bg-green-500" handleClick={handleNext}/>
+
+              </div>
+
             </div>
           </div>
         </div>

@@ -3,5 +3,5 @@ export interface QuoteFilters {
   maxLength?: number,
   minLength?: number,
   tags?: string,
-  author?: string // author name of slug
+  author?: string // author name or slug
 }

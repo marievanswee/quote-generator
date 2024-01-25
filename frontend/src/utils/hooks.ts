@@ -47,7 +47,6 @@ export function useNextQuotes() {
         throw new Error(`Error ${response.status}`);
       }
       const data = await response.json();
-      console.log({data});
       return data.quotes;
     } finally {
       setLoading(false);
