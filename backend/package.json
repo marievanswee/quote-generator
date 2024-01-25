@@ -1,0 +1,33 @@
+{
+  "name": "quote-generator",
+  "version": "1.0.0",
+  "description": "API to integrate with public API",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest test",
+    "start": "node_modules/.bin/tsc && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marievanswee/quote-generator.git"
+  },
+  "author": "Marie Vansweevelt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marievanswee/quote-generator/issues"
+  },
+  "homepage": "https://github.com/marievanswee/quote-generator#readme",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.5",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
