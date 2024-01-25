@@ -1,4 +1,4 @@
-# Kanban - Trello
+# Quote generator
 
 To start the project, go to global folder and run the following command to install packages
 ### `npm run install`
@@ -18,3 +18,8 @@ OR
 ### `npm run start:frontend`
 
 The back end run on port 3030, the front and on port 3000
+
+
+To run backend test, go to backend folder and run this command
+
+### `npm run test`
