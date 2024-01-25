@@ -61,7 +61,7 @@ export const QuoteGenerator = () => {
   return (
       <div className="p-12">
         <h4 className="text-center text-4xl">Quote generator</h4>
-        <Button title="Dsiconnect" color="bg-red-400 hover:bg-red-500" handleClick={handleDisconnect}/>
+        <Button title="Disconnect" color="bg-red-400 hover:bg-red-500" handleClick={handleDisconnect}/>
         <div className="flex flex-col items-center justify-center">
           <div className="rounded shadow-lg">
             <div className="w-full">
