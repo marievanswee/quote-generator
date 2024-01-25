@@ -1,7 +1,20 @@
-# quote-generator
+# Kanban - Trello
 
+To start the project, go to global folder and run the following command to install packages
+### `npm run install`
 
-To run project with front and back go to global root
+Then the following command
 
-# npm start
+### `npm run start`
 
+With that, the back and the front will start
+
+To run them separately, you can run
+
+### `npm run start:backend`
+
+OR
+
+### `npm run start:frontend`
+
+The back end run on port 3030, the front and on port 3000
