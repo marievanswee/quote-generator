@@ -68,7 +68,7 @@ export const QuoteGenerator = () => {
               {quotes.length > 0 && (
                   <label className="text-xl">Nb quotes: {quotes.length}</label>
               )}
-              {quotes.length > 0 && quotes.map((quote, index) => (
+              {quotes.map((quote, index) => (
                   <div key={index} className="flex flex-col px-6 py-4 gap-4">
                     <div className="font-bold text-xl mb-2">Author: {quote.author}</div>
                     <p className="italic">
