@@ -27,7 +27,6 @@ export const Login = () => {
         password: password
       });
       localStorage.setItem('token', token);
-      console.log(localStorage.getItem('token'));
       navigate('/generator');
     } catch (error) {
       setDisplayError(true);
